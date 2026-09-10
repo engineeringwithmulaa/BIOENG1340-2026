@@ -21,7 +21,7 @@ img = Inoise;
 % subplot(1,2,2)
 % imshow(img, [min(img(:)), max(img(:))]);
 
-%%
+%% Convolution itself is a linear operator that can be represented as A (convolution kernal) * x (original image) =b (blurred image)
 img = imresize(img, [128,128]);  
 
 h = ones(3,3)
@@ -37,8 +37,9 @@ p = phantom(n+1-N,m+1-M); %for test
 % I = reshape(img,n,m);
 
 figure(1)
-subplot(2,2,1),imshow(img,[min(min(img)) max(max(img))]),title('blurred img')
+subplot(2,2,1),imshow(p,[min(min(p)) max(max(p))]),title('original img')
 subplot(2,2,2),imagesc(h),title('PSF')
+subplot(2,2,3), imshow(convedP, [min(min(convedP)) max(max(convedP))]), title('blurred img')
 
 
 %% Convolution with internal matlab functions
